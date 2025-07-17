@@ -22,3 +22,15 @@ The consumer group concept ensures that a message is only ever read by a single 
 
 When a consumer group consumes the partitions of a topic, Kafka makes sure that each partition is consumed by exactly one consumer in the group.
 
+![](/Diagrams/consumergroups.png)
+
+## Rebalancing
+
+Rebalancing is the re-assignment of partition ownership among consumers within a given consumer group such that every consumer in a consumer group is assigned one or more partitions. Rebalancing happens when:
+
+- A new consumer joins the consumer group
+- An existing consumer goes down
+- New partitions are added
+- An existing consumer is considered dead by the Group coordinator
+
+The first consumer that joins a consumer group is called the Group Leader of that consumer group.
