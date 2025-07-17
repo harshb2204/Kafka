@@ -16,3 +16,9 @@ By remembering the offset of the last consumed message for each partition, a con
 
 But this may create a problem where multiple consumers instances of the same type read the record of a Kafka topic. To avoid this, Kafka has a concept called Consumer Groups.
 
+## Consumer Groups
+
+The consumer group concept ensures that a message is only ever read by a single consumer in the group.
+
+When a consumer group consumes the partitions of a topic, Kafka makes sure that each partition is consumed by exactly one consumer in the group.
+
