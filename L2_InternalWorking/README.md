@@ -34,3 +34,11 @@ Rebalancing is the re-assignment of partition ownership among consumers within a
 - An existing consumer is considered dead by the Group coordinator
 
 The first consumer that joins a consumer group is called the Group Leader of that consumer group.
+
+## Partition Replication
+
+Replication is making a copy of a partition available in another broker.
+
+Replication enables Kafka to be fault tolerant. When a partition of the topic is available in multiple brokers then one of the partitions in a broker is elected as leader and rest of the replication of partition are followers.
+
+![Partition Replication](../Diagrams/kafka1.png)
