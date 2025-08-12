@@ -105,3 +105,8 @@ hello kafka
 - Use separate terminals for consumer and producer
 - Check that port 9092 is not blocked by firewall
 - Verify the cluster ID matches in your configuration
+
+
+## Kafbat UI
+java -Dspring.config.additional-location=file:C:\kafka\application-local.yml --add-opens java.rmi/javax.rmi.ssl=ALL-UNNAMED -jar C:\kafka\api-v1.3.0.jar
+
