@@ -80,3 +80,34 @@ If new consumer joined say tomorrow, it can read from latest offset or read from
 
 **Example:**
 - Kafka
+
+### Challenges of Event Driven Architecture:
+
+1. **Eventual Consistency**: As events are processed in Async manner. Get call might return stale data, but subsequent calls might give up-to-date information.
+2. **Duplicate events**: Most event router guarantee "at-least once delivery". So duplicates are normal.
+3. **Ordering problems**: Events might reached in out-of-order.
+4. **Schema evolution**: If schema breaks, all consumer will crash.
+5. **Debugging complexity**: Distributed tracing across async hops are little difficult.
+6. **Poison messages**: 1 bad message can block the Event router.
+7. **Operational overhead**: Must monitor for:
+    - Consumer lag
+    - Throughput
+    - Partition, queue etc.
+
+### Use-cases of Event Driven Architecture, When to go for it:
+
+1. **1 event -> N consumer**: When one action must trigger multiple independent actions.
+   - **Ex**: OrderPlaced, then:
+     - Inventory reserves
+     - Payment charges
+     - Email sent
+     - Loyalty points added
+     - Analytics updated
+
+2. **Long running business workflow**:
+   - **Ex**: order -> payment -> shipment -> delivery
+   - These flows take time and can fail midway. So flow is not in critical path, it can be broken into multi-step which is failure prone.
+
+3. **Eventual consistency is acceptable.**
+
+4. **Real time analytics**: Data need to be continuously processed.
