@@ -55,3 +55,28 @@ the inventory service.
 
 2. Pull Model
 ![](/Diagrams/pullmodel.png)
+
+### EDA Models: Pub/Sub vs Streaming
+
+#### Pub/Sub:
+- Events are published to active consumers and then forgotten.
+- If new consumer joined say tomorrow, it wont get yesterday messages.
+
+**Used when:**
+- We care about just delivery.
+- Not about storing history.
+
+**Example:**
+- RabbitMQ Exchange
+
+#### Streaming:
+- Events are appended in logs forever or retention based.
+
+**Used when:**
+- We want replay.
+- We want multiple consumer
+
+If new consumer joined say tomorrow, it can read from latest offset or read from day1 (if retention allows)
+
+**Example:**
+- Kafka
