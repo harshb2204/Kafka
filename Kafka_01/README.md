@@ -82,4 +82,15 @@ We can also write our own custom logic, for example:
 - country is "India" -> go to Partition0
 - country is "US" -> go to Partition1
 
-During implementation, we will see how to write the custom partitioning logic.
+
+
+### Broker
+- A broker is single Kafka server instance.
+- A Broker is the one which actually stores data and serves clients (Producer and Consumer).
+- A Broker stores some partitions of some topics.
+
+> [!IMPORTANT]
+> **Topics and Partitions are distributed across multiple brokers.**
+> This is why a single broker stores only some partitions of some topics.
+> - It does not hold all topics.
+> - It does not hold all partitions of a topic.
