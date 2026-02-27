@@ -52,3 +52,7 @@ Rule:
 
    - **Consumer Group 3**: `audit-service`
      - Consumer 3 → Partition 0
+
+![](/Diagrams/consumergroups2.png)
+![](/Diagrams/consumergroups3.png)
+        
